@@ -1,0 +1,2 @@
+require 'stock_picker'
+
