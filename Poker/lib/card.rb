@@ -3,8 +3,8 @@ class InvalidCard < RuntimeError; end
 class Card
     attr_reader :value, :suit
 
-    VALID_VALUES = [:two, :three, :four, :five, :six, :seven, :eight, :nine, :ten, :jack, :queen, :king, :ace]
-    VALID_SUITS = [:hearts, :diamonds, :spades, :clubs]
+    VALID_VALUES = [:two, :three, :four, :five, :six, :seven, :eight, :nine, :ten, :jack, :queen, :king, :ace].freeze
+    VALID_SUITS = [:hearts, :diamonds, :spades, :clubs].freeze
 
     def initialize(value, suit)
         raise InvalidCard.new("Card value must be between 2 and Ace") unless VALID_VALUES.include?(value)
@@ -22,6 +22,14 @@ class Card
         else
             1
         end 
+    end
+
+    def self.valid_values
+        VALID_VALUES
+    end
+
+    def self.valid_suits
+        VALID_SUITS
     end
 
 end
